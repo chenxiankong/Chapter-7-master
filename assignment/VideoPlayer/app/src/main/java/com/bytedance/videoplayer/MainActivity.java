@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSwitch;
     private FrameLayout frameLayout;
     private RelativeLayout relativeLayout_video;
+    private FrameLayout fl;
     private int videowidth=0;
     private int videoheight=0;
     private Handler handler=new Handler();
@@ -76,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void initView(){
+
+        fl=findViewById(R.id.fl1);
         //处理进度条
         textView=findViewById(R.id.textView);
         //处理 单击屏幕隐藏按钮进度条等
@@ -196,36 +199,11 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
             buttonSwitch.setText("切换为竖屏");
-//            WindowManager wm = (WindowManager)this.getSystemService(this.WINDOW_SERVICE);
-//            DisplayMetrics outMetrics = new DisplayMetrics();
-//            wm.getDefaultDisplay().getMetrics(outMetrics);
-//            int mScreenWidth = outMetrics.widthPixels;//屏幕的宽度
-//            int mScreenHeight = outMetrics.heightPixels;//屏幕的高度
-//
-//            float bili=(float)(videoheight)/videowidth;
-//            float width=mScreenHeight/bili;
-//            ViewGroup.LayoutParams params= relativeLayout_video.getLayoutParams();
-//            params.width =(int)width;
-//            params.height=mScreenHeight;
-//            relativeLayout_video.setLayoutParams(params);
-//            relativeLayout_video.setGravity(Gravity.CENTER);
+            relativeLayout_video.setGravity(Gravity.CENTER);
         }else{
             buttonSwitch.setText("切换为全屏");
-//            WindowManager wm = (WindowManager)this.getSystemService(this.WINDOW_SERVICE);
-//            DisplayMetrics outMetrics = new DisplayMetrics();
-//            wm.getDefaultDisplay().getMetrics(outMetrics);
-//
-//
-//            int mScreenHeight = outMetrics.heightPixels;//屏幕的高度
-//            int mScreenWidth = outMetrics.widthPixels;//屏幕的宽度
-//
-//            float bili=(float)(videoheight)/videowidth;
-//            float height=mScreenHeight*bili;
-//            ViewGroup.LayoutParams params= relativeLayout_video.getLayoutParams();
-//            params.width =(int)mScreenWidth;
-//            params.height=(int)height;
-//            relativeLayout_video.setLayoutParams(params);
-//            relativeLayout_video.setGravity(Gravity.CENTER);
+            Log.d("121212", "onConfigurationChanged: ");
+            relativeLayout_video.setGravity(Gravity.CENTER);
         }
     }
 }
